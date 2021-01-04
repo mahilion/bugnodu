@@ -1,0 +1,21 @@
+<table border="1">
+    <caption>My Tickets</caption>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Created Date</th>
+            <th>Done</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let ticket of tickets'>
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.name}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.createdDate | date | uppercase}}</td>
+            <td>{{ticket.done}}</td>
+        </tr>
+    </tbody>
+</table>

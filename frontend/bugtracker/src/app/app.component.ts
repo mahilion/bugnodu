@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bugtracker';
-  message= 'Welcome to Our'
+  title = 'BugTracker Application'
+  copyright= 'All Right Reserved'
 }

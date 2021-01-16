@@ -2,4 +2,12 @@
 <div class="container">
     You can manage your tickets <a routerLink='/tickets'>here</a>
 </div>
+<div class="container">
+    Click here to get welcome message
+    <button (click)="getWelcomeMessage()" class="btn btn-success" >Welcome Message</button>
+</div>
+<div class="container" *ngIf="message">
+    Your Customised message is
+    {{message}}
+</div>
 

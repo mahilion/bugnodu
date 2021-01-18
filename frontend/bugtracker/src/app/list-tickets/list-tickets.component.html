@@ -8,7 +8,8 @@
                 <th>Description</th>
                 <th>Target Date</th>
                 <th>Done</th>
-                <th>Operations</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -17,9 +18,8 @@
                 <td>{{ticket.description}}</td>
                 <td>{{ticket.targetDate | date | uppercase}}</td>
                 <td>{{ticket.done}}</td>
-                <td>
-                    <button (click)="deleteTicket(ticket.id)" class="btn btn-danger">Delete</button>
-                </td>
+                <td><button (click)="updateTicket(ticket.id)" class="btn btn-success">Update</button></td>
+                <td><button (click)="deleteTicket(ticket.id)" class="btn btn-danger">Delete</button></td>
             </tr>
         </tbody>
     </table>

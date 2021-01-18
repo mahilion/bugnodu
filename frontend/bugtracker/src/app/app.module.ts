@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     ListTicketsComponent,
     MenuComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { ListTicketsComponent } from './list-tickets/list-tickets.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
+import { TicketComponent } from './ticket/ticket.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService] },
   { path: 'tickets', component: ListTicketsComponent, canActivate: [RouteGuardService] },
+  { path: 'tickets/:id', component: TicketComponent, canActivate: [RouteGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
   { path: '**', component: ErrorComponent }
 ];

@@ -17,4 +17,14 @@ export class TicketDataService {
     return this.httpclient.delete(`http://localhost:8080/users/${username}/tickets/${id}`);
   }
 
+  getTicket(username: string, id: number) {
+    console.log(`getting ticket : name is ${username} and id is ${id}`);
+    return this.httpclient.get<Ticket>(`http://localhost:8080/users/${username}/tickets/${id}`);
+  }
+
+  updateTicket(username: string, id: number, ticket: Ticket) {
+    console.log(`updating ticket : name is ${username} and id is ${id}`);
+    return this.httpclient.put(`http://localhost:8080/users/${username}/tickets/${id}`, ticket);
+  }
+
 }

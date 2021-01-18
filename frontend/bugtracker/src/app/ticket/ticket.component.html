@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Ticket</h1>
+    <fieldset class="form-group">
+        <label>Description</label>
+        <input type="text" name="description" required="required" class="form-control" [(ngModel)]="ticket.description">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Target Date</label>
+        <input type="date" name="targetDate" required="required" class="form-control" 
+        [ngModel]="ticket.targetDate | date:'yyyy-MM-dd'"
+        (ngModelChange) = "ticket.targetDate = $event">
+    </fieldset>
+    <button class="btn btn-success" (click)="saveTicket()">Save</button>
+</div>

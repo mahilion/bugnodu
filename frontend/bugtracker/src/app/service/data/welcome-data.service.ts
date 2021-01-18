@@ -10,10 +10,14 @@ export class HelloWorldBean {
 })
 export class WelcomeDataService {
 
-  constructor(private httpclient:HttpClient) { }
+  constructor(private httpclient: HttpClient) { }
 
   executeHelloWorldBeanService() {
     return this.httpclient.get<HelloWorldBean>("http://localhost:8080/hello-world-bean");
+  }
+
+  executeHelloWorldBeanServicePath(name: string) {
+    return this.httpclient.get<HelloWorldBean>(`http://localhost:8080/hello-world-bean/${name}`);
   }
 
 }

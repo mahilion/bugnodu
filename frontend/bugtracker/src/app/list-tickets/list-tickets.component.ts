@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketDataService } from '../service/data/ticket-data.service';
 
 export class Ticket {
 
@@ -6,7 +7,7 @@ export class Ticket {
     public id: number,
     public name: string,
     public description: string,
-    public createdDate: Date,
+    public targetDate: Date,
     public done: boolean
   ) {}
 }
@@ -19,15 +20,39 @@ export class Ticket {
 })
 export class ListTicketsComponent implements OnInit {
 
-  tickets = [
-    new Ticket(1, 'Implement the frontend','Use Angular to implement', new Date(), false),
-    new Ticket(2, 'Implement the backend','Use spring boot', new Date(), false),
-    new Ticket(3, 'Dockerise the app','Use Docker', new Date(), false)
-  ]
+  // tickets = [
+  //   new Ticket(1, 'Implement the frontend','Use Angular to implement', new Date(), false),
+  //   new Ticket(2, 'Implement the backend','Use spring boot', new Date(), false),
+  //   new Ticket(3, 'Dockerise the app','Use Docker', new Date(), false)
+  // ]
 
-  constructor() { }
+  tickets: Ticket[]
+  message: string
+
+  constructor(private ticketService: TicketDataService) { }
 
   ngOnInit() {
+    this.refreshTickets();
+  }
+
+  private refreshTickets() {
+    this.ticketService.findAllTickets('Mahesh').subscribe(
+      response => {
+        console.log(response);
+        this.tickets = response;
+      }
+    );
+  }
+
+  deleteTicket(id: number) {
+    console.log(`deleting ticket ${id}`);
+    this.ticketService.deleteTicket('Mahesh', id).subscribe(
+      response => {
+        console.log(response);
+        this.message = `Successfully deleted the ticket ${id}`;
+        this.refreshTickets();
+      }
+    );
   }
 
 }

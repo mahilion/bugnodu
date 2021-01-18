@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TicketDataService } from '../service/data/ticket-data.service';
 
 export class Ticket {
@@ -29,7 +30,8 @@ export class ListTicketsComponent implements OnInit {
   tickets: Ticket[]
   message: string
 
-  constructor(private ticketService: TicketDataService) { }
+  constructor(private ticketService: TicketDataService,
+    private router: Router) { }
 
   ngOnInit() {
     this.refreshTickets();
@@ -53,6 +55,11 @@ export class ListTicketsComponent implements OnInit {
         this.refreshTickets();
       }
     );
+  }
+
+  updateTicket(id: number) {
+    console.log(`Update ticket ${id}`);
+    this.router.navigate(["tickets",id]);
   }
 
 }

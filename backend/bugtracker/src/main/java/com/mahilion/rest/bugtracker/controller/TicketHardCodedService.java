@@ -13,9 +13,10 @@ import com.mahilion.rest.bugtracker.entity.Ticket;
 public class TicketHardCodedService {
 
     public static List<Ticket> tickets = new ArrayList<>();
+    static int idCOunter = 1;
 
     static {
-        int idCOunter = 1;
+
         tickets.add(new Ticket(idCOunter++, "Mahesh", "Implement the frontend", new Date(), false));
         tickets.add(new Ticket(idCOunter++, "Mahesh", "Implement the backend", new Date(), false));
         tickets.add(new Ticket(idCOunter++, "Mahesh", "Dockerise the app", new Date(), false));
@@ -34,12 +35,23 @@ public class TicketHardCodedService {
         return null;
     }
 
-    private Ticket findById(long id) {
+    public Ticket findById(long id) {
         for (Ticket ticket : tickets) {
             if (ticket.getId() == id) {
                 return ticket;
             }
         }
         return null;
+    }
+
+    public Ticket save(Ticket ticket) {
+        if(ticket.getId() == -1 || ticket.getId() == 0){
+            ticket.setId(idCOunter++);
+            tickets.add(ticket);
+        } else {
+            deleteById(ticket.getId());
+            tickets.add(ticket);
+        }
+        return ticket;
     }
 }

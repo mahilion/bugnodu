@@ -12,6 +12,9 @@ public class Ticket {
     private Date targetDate;
     private boolean isDone;
 
+    public Ticket() {
+    }
+
     public Ticket(int id, String name, String description, Date targetDate, boolean isDone) {
         this.id = id;
         this.name = name;

@@ -1,14 +1,19 @@
 <div class="container">
     <h1>Ticket</h1>
-    <fieldset class="form-group">
-        <label>Description</label>
-        <input type="text" name="description" required="required" class="form-control" [(ngModel)]="ticket.description">
-    </fieldset>
-    <fieldset class="form-group">
-        <label>Target Date</label>
-        <input type="date" name="targetDate" required="required" class="form-control" 
-        [ngModel]="ticket.targetDate | date:'yyyy-MM-dd'"
-        (ngModelChange) = "ticket.targetDate = $event">
-    </fieldset>
-    <button class="btn btn-success" (click)="saveTicket()">Save</button>
+    <div class="alert alert-warning" *ngIf="ticketForm.dirty && ticketForm.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="ticketForm.dirty && description.invalid">Enter atleast 5 characters in description</div>
+    <div class="alert alert-warning" *ngIf="ticketForm.dirty && targetDate.invalid">Enter valid date</div>
+    <form (ngSubmit)="!ticketForm.invalid && saveTicket()" #ticketForm="ngForm">
+        <fieldset class="form-group">
+            <label>Description</label>
+            <input type="text" #description="ngModel" name="description" required="required" class="form-control"
+                [(ngModel)]="ticket.description">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Target Date</label>
+            <input type="date" #targetDate="ngModel" name="targetDate" required="required" class="form-control"
+                [ngModel]="ticket.targetDate | date:'yyyy-MM-dd'" (ngModelChange)="ticket.targetDate = $event">
+        </fieldset>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
 </div>

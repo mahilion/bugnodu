@@ -11,8 +11,9 @@ import { ListTicketsComponent } from './list-tickets/list-tickets.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TicketComponent } from './ticket/ticket.component';
+import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor-basic-auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { TicketComponent } from './ticket/ticket.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorBasicAuthService, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

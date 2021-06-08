@@ -62,4 +62,9 @@ export class ListTicketsComponent implements OnInit {
     this.router.navigate(["tickets",id]);
   }
 
+  createTicket() {
+    console.log("Creating ticket");
+    this.router.navigate(["tickets",-1]);
+  }
+
 }

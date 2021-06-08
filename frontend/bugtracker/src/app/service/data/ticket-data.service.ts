@@ -27,4 +27,9 @@ export class TicketDataService {
     return this.httpclient.put(`http://localhost:8080/users/${username}/tickets/${id}`, ticket);
   }
 
+  createTicket(username: string, ticket: Ticket) {
+    console.log(`creating ticket : name is ${username}`);
+    return this.httpclient.post(`http://localhost:8080/users/${username}/tickets`, ticket);
+  }
+
 }

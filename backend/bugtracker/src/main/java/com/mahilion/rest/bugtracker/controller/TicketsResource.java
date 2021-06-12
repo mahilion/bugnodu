@@ -18,7 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.mahilion.rest.bugtracker.entity.Ticket;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://bugnodu-ui.herokuapp.com")
 @RestController
 public class TicketsResource {
 

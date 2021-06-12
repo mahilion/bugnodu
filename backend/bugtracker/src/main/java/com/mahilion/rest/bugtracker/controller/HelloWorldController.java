@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mahilion.rest.bugtracker.entity.Helloworld;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://bugnodu-ui.herokuapp.com")
 @RestController
 public class HelloWorldController {
 

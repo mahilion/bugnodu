@@ -5,11 +5,12 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/bugtracker'));
 
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
-  });
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/bugtracker/index.html'));
+});
 
 // If an incoming request uses
 // a protocol other than HTTPS,
